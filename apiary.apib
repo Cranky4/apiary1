@@ -1,0 +1,68 @@
+FORMAT: 1A
+HOST: http://api.qwintry3.loc/backend
+
+# Q3 Backend API
+
+## Authorization
+Add Authorization header to all requests:
+```Authorization: Bearer uslzRvkE0J7ZmtVxeS2NfKL7dfqECF9Q```
+
+## Users [/users]
+### List all Users [GET]
++ Response 200 (application/json)
+
+        [
+          {
+            "id": 42,
+            "userName": "Ivan Ivanov #",
+            "firstName": "Ivan",
+            "lastName": "Ivanov",
+            "email": "ivan@ivanov.com",
+            "phone": "790422238561",
+            "status": 10,
+            "createdAt": 1478084872,
+            "updatedAt": 1478084872,
+            "role": "customer",
+          },
+          {
+            "id": 43,
+            "userName": null,
+            "firstName": "Sergey",
+            "lastName": "Petrov",
+            "email": "sergey@petrov.vo",
+            "phone": "79042448561",
+            "status": 10,
+            "createdAt": 1478085374,
+            "updatedAt": 1478085374,
+            "role": "customer",
+          },
+        ]
+
+### Create new User [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": 3, "title": "Buy cheese and bread for breakfast." }
+
+## Note [/notes/{id}]
+A single Note object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+
+### Retrieve a Note [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": 2, "title": "Pick-up posters from post-office" }
+
+### Remove a Note [DELETE]
++ Response 204
